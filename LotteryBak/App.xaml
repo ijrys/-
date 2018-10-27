@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Lottery"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-		<ResourceDictionary Source="StyleResourse.xaml"/>
+	<Application.Resources>
+		<ResourceDictionary Source="StyleResourse.xaml">
+		</ResourceDictionary>
 	</Application.Resources>
 </Application>

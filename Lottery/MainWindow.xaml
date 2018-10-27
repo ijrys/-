@@ -4,9 +4,65 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lottery"
+		xmlns:mylns="clr-namespace:Lottery.Properties"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+
+	<Grid Background="{DynamicResource BrushBackGround}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*" MinWidth="96px"/>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="2*" MinWidth="128px"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<GridSplitter Grid.Column="1" Grid.RowSpan="2" Width="4" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+
+
+
+		<Button x:Name="btnNameList" Grid.Column="0" Grid.Row="0" Click="btnNameList_Click">名单管理</Button>
+		<Button x:Name="btnSetting" Grid.Column="0" Grid.Row="1">设置</Button>
+
+		<Grid Grid.Column="2" Grid.RowSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*" MinHeight="128px"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="96px" MinHeight="64px"/>
+			</Grid.RowDefinitions>
+			<GridSplitter Grid.Row="1" Height="4" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+
+			<ListBox x:Name="listWindowManager" Background="{DynamicResource BrushBackGround}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid Height="64px" Background="{DynamicResource BrushControlBackGround}" >
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="1*"/>
+								<ColumnDefinition Width="64px"/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="1*"/>
+								<RowDefinition Height="1*"/>
+							</Grid.RowDefinitions>
+							<TextBlock Text="{Binding Type}"  Grid.Row="0" Foreground="{DynamicResource BrushForeGround}"/>
+							<TextBlock Text="{Binding State}" Grid.Row="1" Foreground="{DynamicResource BrushForeGround}"/>
+							<Button Click="BtnToWindow_Click" Grid.Column="1" Grid.RowSpan="2">=></Button>
+						</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+
+			<Grid Grid.Row="2" Margin="8 8">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<Button x:Name="btnNewG" Grid.Column="0" Click="btnNewG_Click">滚动模式</Button>
+				<Button x:Name="btnNewZ" Grid.Column="1" Click="btnNewZ_Click">随机直出模式</Button>
+				<Button x:Name="btnNewP" Grid.Column="2" Click="btnNewP_Click">批量模式</Button>
+			</Grid>
+		</Grid>
+	</Grid>
 </Window>

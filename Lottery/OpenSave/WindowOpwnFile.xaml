@@ -1,0 +1,43 @@
+﻿<Window x:Class="Lottery.OpenSave.WindowOpwnFile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lottery.OpenSave"
+        mc:Ignorable="d"
+        Title="WindowOpwnFile" Height="450" Width="800">
+	<Window.Resources>
+	</Window.Resources>
+	<Grid Margin="4" Background="{DynamicResource BrushBackGround}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+			<TextBox x:Name="txtPath"/>
+			<Button Grid.Column="1" Padding="8 4" Click="Button_Click">...</Button>
+		</Grid>
+		<ComboBox Grid.Row="1">
+			<ComboBoxItem>UTF-8</ComboBoxItem>
+			<ComboBoxItem>UTF-16</ComboBoxItem>
+			<ComboBoxItem>ANSI</ComboBoxItem>
+		</ComboBox>
+		<Grid Grid.Row="2" HorizontalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+			<Button x:Name="btnOK" Grid.Column="0" Padding="16 8" Width="{Binding ElementName=btnCancel, Path=ActualWidth, Mode=OneWay}" IsEnabled="False" Click="btnOK_Click">OK</Button>
+			<Button x:Name="btnCancel" Grid.Column="1" Padding="16 8" Click="btnCancel_Click">Cancel</Button>
+		</Grid>
+		<Expander Grid.Row="3" Header="预览">
+			<TextBox x:Name="txtPreview"/>
+		</Expander>
+	</Grid>
+</Window>

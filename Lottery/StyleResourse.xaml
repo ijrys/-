@@ -1,0 +1,80 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Lottery">
+	<SolidColorBrush x:Key="BrushBackGround" Color="#0C0C0E"/>
+	<SolidColorBrush x:Key="BrushControlBackGround" Color="#18181A"/>
+	<SolidColorBrush x:Key="BrushForeGround" Color="#FFF"/>
+	<SolidColorBrush x:Key="BrushPassedBackground" Color="#262627"/>
+
+	<SolidColorBrush x:Key="BrushNEBackGround" Color="#070709"/>
+	<SolidColorBrush x:Key="BrushNEControlBackGround" Color="#0B0B0B"/>
+	<SolidColorBrush x:Key="BrushNEForeGround" Color="#999"/>
+
+	<FontFamily x:Key="FontFamilyMain">微软雅黑</FontFamily>
+
+	<Style x:Key="styleControl" TargetType="Control">
+		<Setter Property="Background" Value="{DynamicResource BrushControlBackGround}"/>
+		<Setter Property="Foreground" Value="{DynamicResource BrushForeGround}"/>
+		<Setter Property="FontSize" Value="14"/>
+		<Setter Property="FontFamily" Value="{DynamicResource FontFamilyMain}"/>
+	</Style>
+	<Style TargetType="Control" BasedOn="{StaticResource styleControl}">
+	</Style>
+	<Style TargetType="Button" BasedOn="{StaticResource styleControl}">
+		<Setter Property="Template" Value="{DynamicResource ButtonBaseControlTemplate}"/>
+	</Style>
+	<Style TargetType="ListBox" BasedOn="{StaticResource styleControl}">
+		<Setter Property="Background" Value="{x:Null}"/>
+		<Setter Property="FontSize" Value="16"/>
+		<Setter Property="Foreground" Value="{DynamicResource BrushForeGround}"/>
+	</Style>
+	<Style TargetType="TextBox" BasedOn="{StaticResource styleControl}">
+		
+	</Style>
+	
+	
+	<Style x:Key="styleTextBlockBase" TargetType="TextBlock">
+		<Setter Property="Foreground" Value="{DynamicResource BrushForeGround}"/>
+		<Setter Property="FontSize" Value="14"/>
+		<Setter Property="FontFamily" Value="{DynamicResource FontFamilyMain}"/>
+	</Style>
+	
+	<ControlTemplate x:Key="ButtonBaseControlTemplate" TargetType="{x:Type ButtonBase}">
+		<Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+				BorderThickness="{TemplateBinding BorderThickness}"
+				Background="{TemplateBinding Background}"
+				SnapsToDevicePixels="True">
+			<ContentPresenter x:Name="contentPresenter"
+							  ContentTemplate="{TemplateBinding ContentTemplate}"
+							  Content="{TemplateBinding Content}"
+							  ContentStringFormat="{TemplateBinding ContentStringFormat}"
+							  Focusable="False"
+							  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							  Margin="{TemplateBinding Padding}"
+							  RecognizesAccessKey="True"
+							  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger Property="Button.IsDefaulted" Value="True">
+				<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+			</Trigger>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Background" TargetName="border" Value="{DynamicResource BrushPassedBackground}"/>
+				<Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+			</Trigger>
+			<Trigger Property="IsPressed" Value="True">
+				<Setter Property="Background" TargetName="border" Value="{DynamicResource BrushPassedBackground}"/>
+				<Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+			</Trigger>
+			<Trigger Property="ToggleButton.IsChecked" Value="True">
+				<Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+				<Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="Background" TargetName="border" Value="{DynamicResource BrushNEControlBackGround}"/>
+				<Setter Property="Foreground" Value="{DynamicResource BrushNEForeGround}"/>
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+</ResourceDictionary>

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{94D81758-F5A8-4E49-B4B8-D919CD7A9E64}</ProjectGuid>
+    <ProjectGuid>{866C1CD1-8628-4488-9096-76A5D770605E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Lottery</RootNamespace>
     <AssemblyName>Lottery</AssemblyName>
@@ -36,8 +36,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,23 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindow.cs" />
     <Compile Include="MiRaIWindow.cs" />
-    <Compile Include="NameListWindow.xaml.cs">
-      <DependentUpon>NameListWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OpenSave\WindowOpwnFile.xaml.cs">
-      <DependentUpon>WindowOpwnFile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Theme.cs" />
-    <Compile Include="WindowG.xaml.cs">
-      <DependentUpon>WindowG.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowP.xaml.cs">
-      <DependentUpon>WindowP.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowZ.xaml.cs">
-      <DependentUpon>WindowZ.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,31 +65,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="NameListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OpenSave\WindowOpwnFile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="StyleResourse.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="WindowG.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowP.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowZ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,7 +94,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
